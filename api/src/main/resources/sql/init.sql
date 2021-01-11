@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS userinfo (`userid` INT AUTO_INCREMENT, `username` VARCHAR(50) NOT NULL, `createtime` DATETIME NOT NULL, PRIMARY KEY (`userid`));
