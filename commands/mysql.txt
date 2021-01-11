@@ -22,4 +22,6 @@ docker run --name mysql                     `
     --collation-server=utf8mb4_unicode_ci   `
     --restart no -d mysql:5.7.32
 
+    file
+
 
