@@ -6,7 +6,7 @@
         <result column="username" property="username" jdbcType="VARCHAR" />
         <result column="createtime" property="createtime" jdbcType="DATE" />
     </resultMap>
-    <insert id="insert" parameterType="com.bsy.spring.api.entities.Userinfo" >
+    <insert id="insert" parameterType="com.bsy.spring.api.entities.Userinfo" useGeneratedKeys="true" keyColumn="id" >
         insert into userinfo (`username`, `createtime`)
         values (#{username}, #{createtime})
     </insert>
