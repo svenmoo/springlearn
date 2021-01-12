@@ -6,9 +6,16 @@
         <result column="username" property="username" jdbcType="VARCHAR" />
         <result column="createtime" property="createtime" jdbcType="DATE" />
     </resultMap>
-    <insert id="insert" parameterType="com.bsy.spring.api.entities.Userinfo" useGeneratedKeys="true" keyColumn="id" >
+    <insert id="insert" parameterType="com.bsy.spring.api.entities.Userinfo" useGeneratedKeys="true" keyProperty="userid"  keyColumn="userid" >
         insert into userinfo (`username`, `createtime`)
         values (#{username}, #{createtime})
     </insert>
 
+    <select id="getTopUsers" resultType="com.bsy.spring.api.entities.Userinfo">
+        select * from userinfo limit 10;
+    </select>
+
+    <select id="getUserById" resultMap="BaseResultMap" parameterType="Integer">
+        select * from userinfo where userid = #{userId};
+    </select>
 </mapper>

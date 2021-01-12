@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BaseResult<T> {
+public class BaseResult<T> implements Serializable {
     public int code;
     public String msg;
     public T data;

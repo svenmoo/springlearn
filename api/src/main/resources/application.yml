@@ -11,3 +11,7 @@ spring:
 mybatis:
   type-aliases-package: com.bsy.spring.api.entities
   mapper-locations: mappers/*.xml
+
+logging:
+  file:
+    path: logs
