@@ -13,8 +13,8 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public void AddUser(String username){
+    public int AddUser(String username){
         Userinfo userinfo = new Userinfo(0, username, new Date());
-        userDao.insert(userinfo);
+        return userDao.insert(userinfo);
     }
 }
