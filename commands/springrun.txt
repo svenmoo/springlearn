@@ -1,0 +1,6 @@
+docker build -t api02:latest .
+
+
+docker run --name api01         `
+    -p 8000:8000                `
+    -d api01
