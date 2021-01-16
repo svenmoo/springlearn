@@ -1,0 +1,12 @@
+server:
+  port: ${BSY_SERVER_PORT}
+
+spring:
+  application:
+    name: ${BSY_APPLICATION_NAME}
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://${BSY_MYSQL_HOST}/svenmoo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8
+    username: bsy
+    password: bsy

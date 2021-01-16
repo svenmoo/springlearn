@@ -13,11 +13,12 @@ services:
 
 
 docker run --name mysql                     `
+    -p 3306:3306                            `
+    -v /d/DockerData/mysql:/var/lib/mysql   `
     -e MYSQL_DATABASE=svenmoo               `
     -e MYSQL_ROOT_PASSWORD=root             `
     -e MYSQL_USER=bsy                       `
     -e MYSQL_PASSWORD=bsy                   `
-    -p 3306:3306                            `
     --restart no -d mysql:5.7.32            `
     --character-set-server=utf8mb4          `
     --collation-server=utf8mb4_unicode_ci
