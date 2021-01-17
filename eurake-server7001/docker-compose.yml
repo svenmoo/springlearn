@@ -1,0 +1,51 @@
+version: '2'
+networks:
+  eureka-net:
+    driver: bridge
+services:
+  eureka1:
+    image: eureka
+    container_name: eureka1
+    restart: always
+    networks:
+      - eureka-net
+    ports:
+      - '7005:7005'
+    environment:
+      - BSY_SERVER_PORT=7005
+      - BSY_APPLICATION_NAME=dureka-app1
+      - BSY_EUREKA_NAME=eureka1
+      - BSY_EUREKA_ZONE=http://eureka2:7006/eureka/
+
+  eureka2:
+    image: eureka
+    container_name: eureka2
+    restart: always
+    networks:
+      - eureka-net
+    ports:
+      - '7006:7006'
+    environment:
+      - BSY_SERVER_PORT=7006
+      - BSY_APPLICATION_NAME=dureka-app2
+      - BSY_EUREKA_NAME=eureka2
+      - BSY_EUREKA_ZONE=http://eureka1:7005/eureka/
+
+#
+#  provider:
+#    image: bolingcavalry/nacossimpleprovider:1.0-SNAPSHOT
+#    links:
+#      - nacos:nacoshost
+#    depends_on:
+#      - nacos
+#    restart: always
+#  consumer:
+#    image: bolingcavalry/nacossimpleconsumer:1.0-SNAPSHOT
+#    links:
+#      - nacos:nacoshost
+#    container_name: consumer
+#    depends_on:
+#      - nacos
+#    ports:
+#      - '8080:8080'
+#    restart: always
