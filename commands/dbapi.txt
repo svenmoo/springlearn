@@ -1,1 +1,1 @@
-docker run --name dbapi02  -p 8015:8015 -e "SPRING_PROFILES_ACTIVE=docker" dbapi
+docker run --name dbapi02 --net inet  -p 8015:8015 -e "SPRING_PROFILES_ACTIVE=docker" dbapi

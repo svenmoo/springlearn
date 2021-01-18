@@ -1,7 +1,9 @@
 version: '2'
 networks:
   inet:
-    driver: bridge
+    external:
+      name: inet
+
 services:
   eureka1:
     image: eureka
