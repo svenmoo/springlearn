@@ -14,6 +14,7 @@ services:
 
 docker run --name mysql                     `
     -p 3306:3306                            `
+    --net inet                              `
     -v /d/DockerData/mysql:/var/lib/mysql   `
     -e MYSQL_DATABASE=svenmoo               `
     -e MYSQL_ROOT_PASSWORD=root             `

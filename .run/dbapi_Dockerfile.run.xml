@@ -23,7 +23,7 @@
             </DockerPortBindingImpl>
           </list>
         </option>
-        <option name="commandLineOptions" value="--link mysql" />
+        <option name="commandLineOptions" value="--link mysql --net inet" />
         <option name="sourceFilePath" value="dbapi/Dockerfile" />
       </settings>
     </deployment>
