@@ -6,7 +6,9 @@ networks:
 
 services:
   eureka1:
-    image: eureka
+    #image: eureka
+    build: .
+    image: eureka:latest
     container_name: eureka1
     restart: always
     networks:

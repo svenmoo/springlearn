@@ -1,0 +1,34 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: eureka-provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost/svenmoo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8
+    username: bsy
+    password: bsy
+
+mybatis:
+  type-aliases-package: com.bsy.dbapi.entity
+  mapper-locations: mapper/*.xml
+
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://eureka1:7005/eureka,http://eureka2.com:7006/eureka  #集群版
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    statusPageUrlPath: /actuator/info
+    healthCheckUrlPath: /actuator/health
+
+logging:
+  level:
+    com.netflix: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
