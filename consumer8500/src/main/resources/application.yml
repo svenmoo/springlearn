@@ -1,0 +1,10 @@
+server:
+  port: 8500
+spring:
+  application:
+    name: consumer
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:7005/eureka,http://eureka2:7006/eureka  #集群版

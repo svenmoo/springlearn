@@ -1,8 +1,6 @@
 server:
-  port: 8020
+  port: 8021
 spring:
-  profiles:
-#    active: dev2
   application:
     name: eureka-provider
   datasource:
@@ -24,13 +22,12 @@ eureka:
   instance:
     statusPageUrlPath: /actuator/info
     healthCheckUrlPath: /actuator/health
-    hostname: provider
     #Eureka客户端向服务端发送心跳的时间间隔.单位为秒(默认30 秒)
     lease-renewal-interval-in-seconds: 1
     #Eureka服务端在收到最后一次心跳等待时间上限.单位为秒(默认90 秒),超时将剔除服务
     lease-expiration-duration-in-seconds: 2
     prefer-ip-address: true
-    instance-id: eureka-provider1
+    instance-id: eureka-provider2
 
 logging:
   level:
