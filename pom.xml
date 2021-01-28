@@ -16,6 +16,9 @@
         <module>eureka-provider8020</module>
         <module>consumer8500</module>
         <module>api-common</module>
+        <module>zuul-server7100</module>
+        <module>sleuth-provider</module>
+        <module>slueth-consumer8040</module>
     </modules>
     <groupId>com.bsy.spring</groupId>
     <artifactId>learn</artifactId>

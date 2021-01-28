@@ -8,3 +8,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:7005/eureka,http://eureka2:7006/eureka  #集群版
+
+logging:
+  level:
+    root: debug

@@ -1,9 +1,9 @@
 package com.bsy.provider.eureka.contolller;
 
 
+import com.bsy.common.entity.BaseResult;
+import com.bsy.common.entity.Userinfo;
 import com.bsy.provider.eureka.service.UserService;
-import com.bsy.provider.eureka.entity.BaseResult;
-import com.bsy.provider.eureka.entity.Userinfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;

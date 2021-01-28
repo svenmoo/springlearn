@@ -1,6 +1,7 @@
-package com.bsy.sonsumer.service;
+package com.bsy.sonsumer.service.impl;
 
 import com.bsy.common.entity.Userinfo;
+import com.bsy.sonsumer.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

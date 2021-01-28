@@ -1,8 +1,8 @@
 package com.bsy.provider.eureka.service.impl;
 
+import com.bsy.common.entity.Userinfo;
 import com.bsy.provider.eureka.dao.UserDao;
 import com.bsy.provider.eureka.service.UserService;
-import com.bsy.provider.eureka.entity.Userinfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

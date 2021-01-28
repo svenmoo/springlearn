@@ -17,7 +17,7 @@ services:
       - '7005:7005'
     environment:
       - BSY_SERVER_PORT=7005
-      - BSY_APPLICATION_NAME=dureka-app1
+      - BSY_APPLICATION_NAME=eureka
       - BSY_EUREKA_NAME=eureka1
       - BSY_EUREKA_ZONE=http://eureka2:7006/eureka/
 
@@ -31,7 +31,7 @@ services:
       - '7006:7006'
     environment:
       - BSY_SERVER_PORT=7006
-      - BSY_APPLICATION_NAME=dureka-app2
+      - BSY_APPLICATION_NAME=eureka
       - BSY_EUREKA_NAME=eureka2
       - BSY_EUREKA_ZONE=http://eureka1:7005/eureka/
 

@@ -11,5 +11,5 @@ ENV BSY_APPLICATION_NAME eureka01-app
 ENV BSY_EUREKA_NAME eureka1
 ENV BSY_EUREKA_ZONE http://eureka2:7006/eureka/
 
-EXPOSE ${BSY_SERVER_PORT}
+#EXPOSE ${BSY_SERVER_PORT}
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom", "-jar","/app.jar"]

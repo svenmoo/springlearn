@@ -1,6 +1,6 @@
 package com.bsy.provider.eureka.service;
 
-import com.bsy.provider.eureka.entity.Userinfo;
+import com.bsy.common.entity.Userinfo;
 
 import java.util.List;
 

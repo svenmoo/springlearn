@@ -1,6 +1,6 @@
 package com.bsy.provider.eureka.dao;
 
-import com.bsy.provider.eureka.entity.Userinfo;
+import com.bsy.common.entity.Userinfo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

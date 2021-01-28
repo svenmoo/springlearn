@@ -1,0 +1,32 @@
+version: '2'
+
+networks:
+  inet:
+    external:
+      name: inet
+
+services:
+  eureka-provider1:
+    build: .
+    image: eureka-provider:latest
+    container_name: eureka-provider1
+    restart: always
+    networks:
+      - inet
+    ports:
+      - '8025:8025'
+    environment:
+      - BSY_SERVER_PORT=8025
+      - BSY_INSTANTCE_ID=eureka-provider1
+
+  eureka-provider2:
+    image: eureka-provider:latest
+    container_name: eureka-provider2
+    restart: always
+    networks:
+      - inet
+    ports:
+      - '8026:8026'
+    environment:
+      - BSY_SERVER_PORT=8026
+      - BSY_INSTANTCE_ID=eureka-provider2
