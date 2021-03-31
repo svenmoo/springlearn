@@ -1,0 +1,41 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: eureka-provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost/svenmoo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useTimezone=true&serverTimezone=GMT%2B8
+    username: bsy
+    password: bsy
+
+mybatis:
+  type-aliases-package: com.bsy.common.entity
+  mapper-locations: mapper/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:7005/eureka,http://eureka2.com:7006/eureka  #集群版
+      #defaultZone: http://localhost:7001/eureka
+  instance:
+#    statusPageUrlPath: /actuator/info
+#    healthCheckUrlPath: /actuator/health
+    hostname: localhost
+    #Eureka客户端向服务端发送心跳的时间间隔.单位为秒(默认30 秒)
+    lease-renewal-interval-in-seconds: 5
+    #Eureka服务端在收到最后一次心跳等待时间上限.单位为秒(默认90 秒),超时将剔除服务
+    lease-expiration-duration-in-seconds: 30
+    prefer-ip-address: false
+    instance-id: eureka-provider
+
+logging:
+  level:
+    root: info
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
