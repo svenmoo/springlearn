@@ -1,0 +1,5 @@
+2021-01-15 16:20:00.297  INFO 26580 --- [main] com.bsy.spring.api.ApiApplicationTests   : Starting ApiApplicationTests using Java 1.8.0_252 on PC-SVENMOO with PID 26580 (started by baosi in D:\javaprojects\springlearn\api)
+2021-01-15 16:20:00.300  INFO 26580 --- [main] com.bsy.spring.api.ApiApplicationTests   : No active profile set, falling back to default profiles: default
+2021-01-15 16:20:02.108  INFO 26580 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-15 16:20:02.514  INFO 26580 --- [main] com.bsy.spring.api.ApiApplicationTests   : Started ApiApplicationTests in 2.548 seconds (JVM running for 3.519)
+2021-01-15 16:20:02.783  INFO 26580 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

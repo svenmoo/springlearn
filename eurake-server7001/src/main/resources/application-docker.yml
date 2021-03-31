@@ -3,12 +3,14 @@ server:
 
 spring:
   application:
-    name: ${BSY_APPLICATION_NAME}
+    name: eureka
 
 eureka:
   instance:
     #eureka服务端的实例名称
     hostname: ${BSY_EUREKA_NAME}
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${BSY_SERVER_IP}:${server.port}
   client:
     #false表示自己端就是注册中心,职责是维护实例,并不需要检索服务
     register-with-eureka: false
