@@ -51,7 +51,7 @@ public class RemoteController {
             }
         }
 
-        return port + " run " + times + " times for [" + url + "]";
+        return "[new] " + port + " run " + times + " times for [" + url + "]";
     }
 
     public String hystrixGet() {
