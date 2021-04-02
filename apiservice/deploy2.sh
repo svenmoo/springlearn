@@ -1,29 +1,38 @@
 #!/bin/bash
 
-#http://192.168.1.188:9001/actuator/metrics/hystrix.threadpool.threads.active.current.count
-
 #服务的容器名称
 container_name=apiservice1
 #服务的ip端口
 ip_port=192.168.1.188:9001
 # 下负载到更新服务需要等待的时间
 wait_time=90  #服务同步eureka时间，ribbon缓存时间
+# 新版本jar文件位置
+new_jar=/root/springboot/apiservice-new.jar
+# 发布的jar文件位置
+deploy_jar=/root/springboot/apiservice1/apiservice.jar
 
-#1.停止应用的服务注册
-curl -s -w %{http_code} -X "POST" "http://192.168.1.188:9001/actuator/service-registry?status=DOWN" -H "Content-Type: application/vnd.spring-boot.actuator.v2+json;charset=UTF-8"
+#停止应用的服务注册
+function discover_shutdown(){
+  curl -s -w %{http_code} -X "POST" "http://192.168.1.188:9001/actuator/service-registry?status=DOWN" -H "Content-Type: application/vnd.spring-boot.actuator.v2+json;charset=UTF-8"
+  wait
+}
+
 
 #2.等待服务更新时间刷新时间，保证其他服务已更新最新服务列表
 sleep 35
 
-#3.再等几秒，判断没有运行的请求
-activeNum=$(curl -s http://192.168.1.188:9001/actuator/metrics/hystrix.threadpool.threads.active.current.count | jq ".measurements[0].value")
+#3.等待当前请求完成, 需要集成hystrix
+function wait_active_request_close(){
+  activeNum=$(curl -s http://192.168.1.188:9001/actuator/metrics/hystrix.threadpool.threads.active.current.count | jq ".measurements[0].value")
 
-while [ "$activeNum" != "" ]  && [ "$activeNum" != "0" ]
-do
-        echo 'waiting active threads...'
-        sleep 1
-        activeNum=$(curl -s http://192.168.1.188:9001/actuator/metrics/hystrix.threadpool.threads.active.current.count | jq ".measurements[0].value")
-done
+  while [ "$activeNum" != "" ]  && [ "$activeNum" != "0" ]
+  do
+          echo 'waiting active threads...'
+          sleep 1
+          activeNum=$(curl -s http://192.168.1.188:9001/actuator/metrics/hystrix.threadpool.threads.active.current.count | jq ".measurements[0].value")
+  done
+}
+
 #4.更新docker自动重启配置，关闭自动重启
 docker update --restart=no apiservice1
 #5.调用shutdown停止服务
